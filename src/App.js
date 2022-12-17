@@ -24,7 +24,7 @@ function App() {
       ]
     },
     { path: '/about', element: <About></About> },
-    
+    { path: '*', element: <div>Page Not Found ...!</div> }
   ])
 
 
