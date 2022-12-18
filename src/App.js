@@ -8,6 +8,7 @@ import About from './components/About/About';
 import Products from './components/Products/Products';
 import Main from './Layout/Main';
 import Friends from './components/Friends/Friends';
+import FriendDetails from './components/FriendDetails/FriendDetails';
 
 
 
@@ -20,10 +21,22 @@ function App() {
         { path: '/', element: <Home></Home> },
         { path: '/home', element: <Home></Home> },
         { path: '/products', element: <Products></Products> },
-        { path: '/friends', element: <Friends></Friends> }
+        {
+          path: '/friends',
+          loader: () => fetch('https://jsonplaceholder.typicode.com/users'),
+          element: <Friends></Friends>
+        },
+        {
+          path: '/friend/:friendId',
+          element: <FriendDetails></FriendDetails>,
+          loader: async ({ params }) => {
+            return fetch(`https://jsonplaceholder.typicode.com/users/${params.friendId}`)
+          }
+        }
+
       ]
     },
-    { path: '/about', element: <About></About> },
+    { path: '/about', element: <About></About>, },
     { path: '*', element: <div>Page Not Found ...!</div> }
   ])
 
