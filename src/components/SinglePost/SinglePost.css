@@ -1,0 +1,18 @@
+.single-post {
+    background-color: rgb(209, 149, 252);
+    border-radius: 20px;
+    padding: 20px;
+
+}
+
+.single-post:hover {
+    background-color: rgb(165, 40, 255);
+    color: white;
+}
+
+.details-link {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+
+}

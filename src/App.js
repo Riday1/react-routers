@@ -9,6 +9,8 @@ import Products from './components/Products/Products';
 import Main from './Layout/Main';
 import Friends from './components/Friends/Friends';
 import FriendDetails from './components/FriendDetails/FriendDetails';
+import AllPost from './components/AllPost/AllPost';
+import PostDetails from './components/PostDetails/PostDetails';
 
 
 
@@ -30,8 +32,24 @@ function App() {
           path: '/friend/:friendId',
           element: <FriendDetails></FriendDetails>,
           loader: async ({ params }) => {
+
             return fetch(`https://jsonplaceholder.typicode.com/users/${params.friendId}`)
           }
+        },
+        {
+          path: '/allPost',
+          element: <AllPost></AllPost>,
+          loader: () => {
+            return fetch('https://jsonplaceholder.typicode.com/posts')
+          }
+        },
+        {
+          path: '/post/:postId',
+          element: <PostDetails></PostDetails>,
+          loader: ({ params }) => {
+            return fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`)
+          }
+
         }
 
       ]

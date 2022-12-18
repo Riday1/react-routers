@@ -1,13 +1,13 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-
+import './FriendDetails.css'
 const FriendDetails = () => {
     const details = useLoaderData();
-    console.log(details)
+
     const { name, email, phone, website } = details;
     return (
-        <div>
-            <div>
+        <div className='friend-details'>
+            <div >
                 <h3>Name : {name}</h3>
                 <p>Email : {email}</p>
                 <p>Call him : {phone}</p>
